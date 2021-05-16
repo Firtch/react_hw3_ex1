@@ -1,15 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { Watch } from "./components/Watch/Watch";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+function tick() {
+  ReactDOM.render(
+    <React.StrictMode>
+      <Watch
+        hour={new Date().getHours().toString()}
+        min={new Date().getMinutes().toString()}
+        sec={new Date().getSeconds().toString()}
+      />
+    </React.StrictMode>,
+    document.getElementById("root")
+  );
+}
+tick();
+setInterval(tick, 30000);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
